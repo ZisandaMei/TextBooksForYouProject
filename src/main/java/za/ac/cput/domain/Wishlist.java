@@ -19,7 +19,7 @@ public class Wishlist {
         this.Priority = builder.Priority;
         this.totalPrice = builder.totalPrice;
 
-    }
+  }
 
 
     public int getWishlistID() {
