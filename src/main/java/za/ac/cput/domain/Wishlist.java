@@ -1,5 +1,7 @@
 package za.ac.cput.domain;
 
+import java.util.Objects;
+
 public class Wishlist {
     private int WishlistID;
     private int UserID;
@@ -47,13 +49,16 @@ public class Wishlist {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Wishlist wishlist = (Wishlist) o;
+        return WishlistID == wishlist.WishlistID && UserID == wishlist.UserID && ISBN == wishlist.ISBN && Double.compare(Price, wishlist.Price) == 0 && Double.compare(totalPrice, wishlist.totalPrice) == 0 && Objects.equals(Priority, wishlist.Priority);
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(WishlistID, UserID, ISBN, Price, Priority, totalPrice);
     }
 
     @Override
